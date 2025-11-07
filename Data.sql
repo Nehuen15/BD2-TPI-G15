@@ -1,0 +1,571 @@
+USE BD2_TPI_G15;
+GO
+
+INSERT INTO Estadio (nombre, ciudad, capacidad, direccion) VALUES
+('Estadio Monumental', 'Buenos Aires', 83514, 'Av. Figueroa Alcorta 7597'),
+('La Bombonera', 'Buenos Aires', 54500, 'Brandsen 805'),
+('Estadio Libertadores de América', 'Avellaneda', 52300, 'Ricardo Enrique Bochini 751'),
+('Estadio Presidente Perón', 'Avellaneda', 51000, 'Orestes Omar Corbatta 1050'),
+('Estadio Pedro Bidegain', 'Buenos Aires', 47000, 'Av. Perito Moreno y Varela'),
+('Estadio Tomás Adolfo Ducó', 'Buenos Aires', 48300, 'Av. Amancio Alcorta 2570'),
+('Estadio Gigante de Arroyito', 'Rosario', 41000, 'Av. Génova 950'),
+('Estadio Marcelo Bielsa', 'Rosario', 42000, 'Parque Independencia s/n'),
+('Estadio Mario Alberto Kempes', 'Córdoba', 57000, 'Av. Cárcano s/n'),
+('Estadio José Amalfitani', 'Buenos Aires', 49000, 'Av. Juan B. Justo 9200'),
+('Old Trafford', 'Manchester', 74310, 'Sir Matt Busby Way, M16 0RA'),
+('Etihad Stadium', 'Manchester', 53400, 'Ashton New Rd, M11 3FF'),
+('Anfield', 'Liverpool', 54000, 'Anfield Rd, L4 0TH'),
+('Stamford Bridge', 'London', 40300, 'Fulham Rd, SW6 1HS'),
+('Emirates Stadium', 'London', 60704, 'Hornsey Rd, N7 7AJ'),
+('Tottenham Hotspur Stadium', 'London', 62850, '782 High Rd, N17 0BX'),
+('St James'' Park', 'Newcastle', 52300, 'Barrack Rd, NE1 4ST'),
+('Goodison Park', 'Liverpool', 39571, 'Goodison Rd, L4 4EL'),
+('Villa Park', 'Birmingham', 42657, 'Trinity Rd, B6 6HE'),
+('Elland Road', 'Leeds', 37900, 'Elland Rd, LS11 0ES'),
+('Santiago Bernabéu', 'Madrid', 81044, 'Av. de Concha Espina 1'),
+('Camp Nou', 'Barcelona', 99354, 'C. d''Arístides Maillol 12'),
+('Wanda Metropolitano', 'Madrid', 68456, 'Av. de Luis Aragonés 4'),
+('Ramón Sánchez-Pizjuán', 'Sevilla', 43883, 'Calle Sevilla Fútbol Club s/n'),
+('Benito Villamarín', 'Sevilla', 60721, 'Av. de la Palmera s/n'),
+('Mestalla', 'Valencia', 49000, 'Av. de Suècia s/n'),
+('San Mamés', 'Bilbao', 53332, 'Calle Luis Briñas 3'),
+('Anoeta', 'San Sebastián', 39500, 'Paseo de Anoeta 1'),
+('La Rosaleda', 'Málaga', 30044, 'Paseo de Martiricos s/n'),
+('RCDE Stadium', 'Barcelona', 40500, 'Av. del Baix Llobregat 100');
+
+INSERT INTO Liga (nombre, pais, division) VALUES
+('Liga Profesional de Fútbol', 'Argentina', 'Primera División'),
+('Primera Nacional', 'Argentina', 'Segunda División'),
+('Premier League', 'Inglaterra', 'Primera División'),
+('EFL Championship', 'Inglaterra', 'Segunda División'),
+('LaLiga EA Sports', 'España', 'Primera División'),
+('LaLiga Hypermotion', 'España', 'Segunda División');
+
+EXEC sp_ingresarEquipo 1, 'River Plate', 'Buenos Aires', '1901-05-25';
+EXEC sp_ingresarEquipo 1, 'Boca Juniors', 'Buenos Aires', '1905-04-03';
+EXEC sp_ingresarEquipo 1, 'Racing Club', 'Avellaneda', '1903-03-25';
+EXEC sp_ingresarEquipo 1, 'Independiente', 'Avellaneda', '1905-01-01';
+EXEC sp_ingresarEquipo 1, 'San Lorenzo', 'Buenos Aires', '1908-04-01';
+EXEC sp_ingresarEquipo 1, 'Huracán', 'Buenos Aires', '1908-11-01';
+EXEC sp_ingresarEquipo 1, 'Rosario Central', 'Rosario', '1889-12-24';
+EXEC sp_ingresarEquipo 1, 'Newells Old Boys', 'Rosario', '1903-11-03';
+EXEC sp_ingresarEquipo 1, 'Talleres', 'Córdoba', '1913-10-12';
+EXEC sp_ingresarEquipo 1, 'Belgrano', 'Córdoba', '1905-03-19';
+EXEC sp_ingresarEquipo 2, 'Quilmes', 'Quilmes', '1887-11-27';
+EXEC sp_ingresarEquipo 2, 'Ferro Carril Oeste', 'Buenos Aires', '1904-07-28';
+EXEC sp_ingresarEquipo 2, 'Almirante Brown', 'La Matanza', '1922-01-17';
+EXEC sp_ingresarEquipo 2, 'Gimnasia de Mendoza', 'Mendoza', '1908-08-30';
+EXEC sp_ingresarEquipo 2, 'San Martín de Tucumán', 'Tucumán', '1909-09-02';
+EXEC sp_ingresarEquipo 2, 'All Boys', 'Buenos Aires', '1913-03-15';
+EXEC sp_ingresarEquipo 2, 'Estudiantes de Río Cuarto', 'Río Cuarto', '1912-09-21';
+EXEC sp_ingresarEquipo 2, 'Temperley', 'Buenos Aires', '1912-11-01';
+EXEC sp_ingresarEquipo 2, 'Defensores de Belgrano', 'Buenos Aires', '1906-05-25';
+EXEC sp_ingresarEquipo 2, 'Atlanta', 'Buenos Aires', '1904-10-12';
+EXEC sp_ingresarEquipo 3, 'Manchester United', 'Manchester', '1878-01-01';
+EXEC sp_ingresarEquipo 3, 'Manchester City', 'Manchester', '1880-01-01';
+EXEC sp_ingresarEquipo 3, 'Liverpool', 'Liverpool', '1892-03-15';
+EXEC sp_ingresarEquipo 3, 'Chelsea', 'London', '1905-03-10';
+EXEC sp_ingresarEquipo 3, 'Arsenal', 'London', '1886-12-01';
+EXEC sp_ingresarEquipo 3, 'Tottenham Hotspur', 'London', '1882-09-05';
+EXEC sp_ingresarEquipo 3, 'Newcastle United', 'Newcastle', '1892-12-09';
+EXEC sp_ingresarEquipo 3, 'Everton', 'Liverpool', '1878-03-01';
+EXEC sp_ingresarEquipo 3, 'Aston Villa', 'Birmingham', '1874-11-01';
+EXEC sp_ingresarEquipo 3, 'Leeds United', 'Leeds', '1919-10-17';
+EXEC sp_ingresarEquipo 4, 'West Bromwich Albion', 'West Bromwich', '1878-01-01';
+EXEC sp_ingresarEquipo 4, 'Norwich City', 'Norwich', '1902-06-17';
+EXEC sp_ingresarEquipo 4, 'Sunderland', 'Sunderland', '1879-10-01';
+EXEC sp_ingresarEquipo 4, 'Middlesbrough', 'Middlesbrough', '1876-02-18';
+EXEC sp_ingresarEquipo 4, 'Coventry City', 'Coventry', '1883-08-01';
+EXEC sp_ingresarEquipo 4, 'Hull City', 'Hull', '1904-06-02';
+EXEC sp_ingresarEquipo 4, 'Blackburn Rovers', 'Blackburn', '1875-11-05';
+EXEC sp_ingresarEquipo 4, 'Watford', 'Watford', '1881-09-01';
+EXEC sp_ingresarEquipo 4, 'Swansea City', 'Swansea', '1912-07-23';
+EXEC sp_ingresarEquipo 4, 'Cardiff City', 'Cardiff', '1899-04-01';
+EXEC sp_ingresarEquipo 5, 'Real Madrid', 'Madrid', '1902-03-06';
+EXEC sp_ingresarEquipo 5, 'FC Barcelona', 'Barcelona', '1899-11-29';
+EXEC sp_ingresarEquipo 5, 'Atlético de Madrid', 'Madrid', '1903-04-26';
+EXEC sp_ingresarEquipo 5, 'Sevilla FC', 'Sevilla', '1890-01-25';
+EXEC sp_ingresarEquipo 5, 'Real Betis', 'Sevilla', '1907-09-12';
+EXEC sp_ingresarEquipo 5, 'Valencia CF', 'Valencia', '1919-03-18';
+EXEC sp_ingresarEquipo 5, 'Athletic Club', 'Bilbao', '1898-08-01';
+EXEC sp_ingresarEquipo 5, 'Real Sociedad', 'San Sebastián', '1909-09-07';
+EXEC sp_ingresarEquipo 5, 'Málaga CF', 'Málaga', '1948-04-25';
+EXEC sp_ingresarEquipo 5, 'RCD Espanyol', 'Barcelona', '1900-10-28';
+EXEC sp_ingresarEquipo 6, 'Real Valladolid', 'Valladolid', '1928-06-20';
+EXEC sp_ingresarEquipo 6, 'Levante UD', 'Valencia', '1909-09-09';
+EXEC sp_ingresarEquipo 6, 'Sporting de Gijón', 'Gijón', '1905-07-01';
+EXEC sp_ingresarEquipo 6, 'Racing Santander', 'Santander', '1913-06-14';
+EXEC sp_ingresarEquipo 6, 'CD Tenerife', 'Santa Cruz de Tenerife', '1912-11-08';
+EXEC sp_ingresarEquipo 6, 'UD Las Palmas', 'Las Palmas', '1949-08-22';
+EXEC sp_ingresarEquipo 6, 'Zaragoza', 'Zaragoza', '1932-03-18';
+EXEC sp_ingresarEquipo 6, 'Oviedo', 'Oviedo', '1926-03-26';
+EXEC sp_ingresarEquipo 6, 'Albacete', 'Albacete', '1940-08-01';
+EXEC sp_ingresarEquipo 6, 'Eibar', 'Eibar', '1940-08-30';
+EXEC sp_ingresarEquipo 2, 'San Martín de San Juan', 'San Juan', '1907-09-01';
+EXEC sp_ingresarEquipo 2, 'Chacarita Juniors', 'Buenos Aires', '1906-05-01';
+EXEC sp_ingresarEquipo 2, 'Instituto', 'Córdoba', '1918-08-08';
+EXEC sp_ingresarEquipo 2, 'Brown de Adrogué', 'Adrogué', '1945-09-03';
+EXEC sp_ingresarEquipo 2, 'Agropecuario', 'Carlos Casares', '2011-06-01';
+EXEC sp_ingresarEquipo 2, 'Gimnasia de Jujuy', 'San Salvador de Jujuy', '1931-03-18';
+EXEC sp_ingresarEquipo 4, 'Millwall', 'London', '1885-01-01';
+EXEC sp_ingresarEquipo 4, 'Sheffield Wednesday', 'Sheffield', '1867-09-04';
+EXEC sp_ingresarEquipo 4, 'Queens Park Rangers', 'London', '1886-11-01';
+EXEC sp_ingresarEquipo 4, 'Bristol City', 'Bristol', '1894-08-01';
+EXEC sp_ingresarEquipo 4, 'Stoke City', 'Stoke-on-Trent', '1863-04-01';
+EXEC sp_ingresarEquipo 4, 'Huddersfield Town', 'Huddersfield', '1908-08-15';
+EXEC sp_ingresarEquipo 6, 'Granada CF', 'Granada', '1931-04-06';
+EXEC sp_ingresarEquipo 6, 'Leganés', 'Madrid', '1928-06-23';
+EXEC sp_ingresarEquipo 6, 'Elche CF', 'Elche', '1923-01-28';
+EXEC sp_ingresarEquipo 6, 'Alcorcón', 'Madrid', '1971-07-20';
+EXEC sp_ingresarEquipo 6, 'Burgos CF', 'Burgos', '1985-08-20';
+EXEC sp_ingresarEquipo 1, 'Platense', 'Vicente López', '1905-05-25';
+EXEC sp_ingresarEquipo 1, 'Argentinos Juniors', 'Buenos Aires', '1904-08-15';
+EXEC sp_ingresarEquipo 1, 'Lanús', 'Lanús', '1915-01-03';
+EXEC sp_ingresarEquipo 1, 'Banfield', 'Banfield', '1896-01-21';
+EXEC sp_ingresarEquipo 1, 'Godoy Cruz', 'Mendoza', '1921-06-01';
+EXEC sp_ingresarEquipo 1, 'Unión de Santa Fe', 'Santa Fe', '1907-04-15';
+EXEC sp_ingresarEquipo 1, 'Colón', 'Santa Fe', '1905-05-05';
+EXEC sp_ingresarEquipo 3, 'Brighton & Hove Albion', 'Brighton', '1901-06-24';
+EXEC sp_ingresarEquipo 3, 'West Ham United', 'London', '1895-06-29';
+EXEC sp_ingresarEquipo 3, 'Fulham', 'London', '1879-10-01';
+EXEC sp_ingresarEquipo 3, 'Crystal Palace', 'London', '1905-09-10';
+EXEC sp_ingresarEquipo 3, 'Brentford', 'London', '1889-10-10';
+EXEC sp_ingresarEquipo 3, 'Nottingham Forest', 'Nottingham', '1865-03-22';
+EXEC sp_ingresarEquipo 5, 'Villarreal CF', 'Villarreal', '1923-03-10';
+EXEC sp_ingresarEquipo 5, 'Celta de Vigo', 'Vigo', '1923-08-23';
+EXEC sp_ingresarEquipo 5, 'Getafe CF', 'Getafe', '1983-03-30';
+EXEC sp_ingresarEquipo 5, 'Real Mallorca', 'Palma de Mallorca', '1916-03-05';
+EXEC sp_ingresarEquipo 5, 'Alavés', 'Vitoria', '1921-01-23';
+EXEC sp_ingresarEquipo 5, 'Osasuna', 'Pamplona', '1920-10-24';
+EXEC sp_ingresarEquipo 5, 'Girona FC', 'Girona', '1930-07-23';
+EXEC sp_ingresarEquipo 5, 'Las Palmas', 'Las Palmas', '1949-08-22';
+
+UPDATE Equipo SET idEstadio = 1 WHERE idEquipo = 1;
+UPDATE Equipo SET idEstadio = 2 WHERE idEquipo = 2;
+UPDATE Equipo SET idEstadio = 3 WHERE idEquipo = 3;
+UPDATE Equipo SET idEstadio = 4 WHERE idEquipo = 4;
+UPDATE Equipo SET idEstadio = 5 WHERE idEquipo = 5;
+UPDATE Equipo SET idEstadio = 6 WHERE idEquipo = 6;
+UPDATE Equipo SET idEstadio = 7 WHERE idEquipo = 7;
+UPDATE Equipo SET idEstadio = 8 WHERE idEquipo = 8;
+UPDATE Equipo SET idEstadio = 9 WHERE idEquipo = 9;
+UPDATE Equipo SET idEstadio = 10 WHERE idEquipo = 10;
+UPDATE Equipo SET idEstadio = 11 WHERE idEquipo = 21;
+UPDATE Equipo SET idEstadio = 12 WHERE idEquipo = 22;
+UPDATE Equipo SET idEstadio = 13 WHERE idEquipo = 23;
+UPDATE Equipo SET idEstadio = 14 WHERE idEquipo = 24;
+UPDATE Equipo SET idEstadio = 15 WHERE idEquipo = 25;
+UPDATE Equipo SET idEstadio = 16 WHERE idEquipo = 26;
+UPDATE Equipo SET idEstadio = 17 WHERE idEquipo = 27;
+UPDATE Equipo SET idEstadio = 18 WHERE idEquipo = 28;
+UPDATE Equipo SET idEstadio = 19 WHERE idEquipo = 29;
+UPDATE Equipo SET idEstadio = 20 WHERE idEquipo = 30;
+UPDATE Equipo SET idEstadio = 21 WHERE idEquipo = 41;
+UPDATE Equipo SET idEstadio = 22 WHERE idEquipo = 42;
+UPDATE Equipo SET idEstadio = 23 WHERE idEquipo = 43;
+UPDATE Equipo SET idEstadio = 24 WHERE idEquipo = 44;
+UPDATE Equipo SET idEstadio = 25 WHERE idEquipo = 45;
+UPDATE Equipo SET idEstadio = 26 WHERE idEquipo = 46;
+UPDATE Equipo SET idEstadio = 27 WHERE idEquipo = 47;
+UPDATE Equipo SET idEstadio = 28 WHERE idEquipo = 48;
+UPDATE Equipo SET idEstadio = 29 WHERE idEquipo = 49;
+UPDATE Equipo SET idEstadio = 30 WHERE idEquipo = 50;
+
+EXEC sp_insertarTemporada '2016', 1, '2016-02-01', '2016-12-31';
+EXEC sp_insertarTemporada '2017', 1, '2017-02-01', '2017-12-31';
+EXEC sp_insertarTemporada '2018', 1, '2018-02-01', '2018-12-31';
+EXEC sp_insertarTemporada '2019', 1, '2019-02-01', '2019-12-31';
+EXEC sp_insertarTemporada '2020', 1, '2020-02-01', '2020-12-31';
+EXEC sp_insertarTemporada '2021', 1, '2021-02-01', '2021-12-31';
+EXEC sp_insertarTemporada '2022', 1, '2022-02-01', '2022-12-31';
+EXEC sp_insertarTemporada '2023', 1, '2023-02-01', '2023-12-31';
+EXEC sp_insertarTemporada '2024', 1, '2024-02-01', '2024-12-31';
+EXEC sp_insertarTemporada '2025', 1, '2025-02-01', '2025-12-31';
+EXEC sp_insertarTemporada '2016', 2, '2016-02-01', '2016-12-31';
+EXEC sp_insertarTemporada '2017', 2, '2017-02-01', '2017-12-31';
+EXEC sp_insertarTemporada '2018', 2, '2018-02-01', '2018-12-31';
+EXEC sp_insertarTemporada '2019', 2, '2019-02-01', '2019-12-31';
+EXEC sp_insertarTemporada '2020', 2, '2020-02-01', '2020-12-31';
+EXEC sp_insertarTemporada '2021', 2, '2021-02-01', '2021-12-31';
+EXEC sp_insertarTemporada '2022', 2, '2022-02-01', '2022-12-31';
+EXEC sp_insertarTemporada '2023', 2, '2023-02-01', '2023-12-31';
+EXEC sp_insertarTemporada '2024', 2, '2024-02-01', '2024-12-31';
+EXEC sp_insertarTemporada '2025', 2, '2025-02-01', '2025-12-31';
+EXEC sp_insertarTemporada '2016', 3, '2016-08-01', '2017-05-20';
+EXEC sp_insertarTemporada '2017', 3, '2017-08-01', '2018-05-20';
+EXEC sp_insertarTemporada '2018', 3, '2018-08-01', '2019-05-20';
+EXEC sp_insertarTemporada '2019', 3, '2019-08-01', '2020-05-20';
+EXEC sp_insertarTemporada '2020', 3, '2020-08-01', '2021-05-20';
+EXEC sp_insertarTemporada '2021', 3, '2021-08-01', '2022-05-20';
+EXEC sp_insertarTemporada '2022', 3, '2022-08-01', '2023-05-20';
+EXEC sp_insertarTemporada '2023', 3, '2023-08-01', '2024-05-20';
+EXEC sp_insertarTemporada '2024', 3, '2024-08-01', '2025-05-20';
+EXEC sp_insertarTemporada '2025', 3, '2025-08-01', '2026-05-20';
+EXEC sp_insertarTemporada '2016', 4, '2016-08-01', '2017-05-15';
+EXEC sp_insertarTemporada '2017', 4, '2017-08-01', '2018-05-15';
+EXEC sp_insertarTemporada '2018', 4, '2018-08-01', '2019-05-15';
+EXEC sp_insertarTemporada '2019', 4, '2019-08-01', '2020-05-15';
+EXEC sp_insertarTemporada '2020', 4, '2020-08-01', '2021-05-15';
+EXEC sp_insertarTemporada '2021', 4, '2021-08-01', '2022-05-15';
+EXEC sp_insertarTemporada '2022', 4, '2022-08-01', '2023-05-15';
+EXEC sp_insertarTemporada '2023', 4, '2023-08-01', '2024-05-15';
+EXEC sp_insertarTemporada '2024', 4, '2024-08-01', '2025-05-15';
+EXEC sp_insertarTemporada '2025', 4, '2025-08-01', '2026-05-15';
+EXEC sp_insertarTemporada '2016', 5, '2016-08-20', '2017-05-30';
+EXEC sp_insertarTemporada '2017', 5, '2017-08-20', '2018-05-30';
+EXEC sp_insertarTemporada '2018', 5, '2018-08-20', '2019-05-30';
+EXEC sp_insertarTemporada '2019', 5, '2019-08-20', '2020-05-30';
+EXEC sp_insertarTemporada '2020', 5, '2020-08-20', '2021-05-30';
+EXEC sp_insertarTemporada '2021', 5, '2021-08-20', '2022-05-30';
+EXEC sp_insertarTemporada '2022', 5, '2022-08-20', '2023-05-30';
+EXEC sp_insertarTemporada '2023', 5, '2023-08-20', '2024-05-30';
+EXEC sp_insertarTemporada '2024', 5, '2024-08-20', '2025-05-30';
+EXEC sp_insertarTemporada '2025', 5, '2025-08-20', '2026-05-30';
+EXEC sp_insertarTemporada '2016', 6, '2016-08-20', '2017-05-25';
+EXEC sp_insertarTemporada '2017', 6, '2017-08-20', '2018-05-25';
+EXEC sp_insertarTemporada '2018', 6, '2018-08-20', '2019-05-25';
+EXEC sp_insertarTemporada '2019', 6, '2019-08-20', '2020-05-25';
+EXEC sp_insertarTemporada '2020', 6, '2020-08-20', '2021-05-25';
+EXEC sp_insertarTemporada '2021', 6, '2021-08-20', '2022-05-25';
+EXEC sp_insertarTemporada '2022', 6, '2022-08-20', '2023-05-25';
+EXEC sp_insertarTemporada '2023', 6, '2023-08-20', '2024-05-25';
+EXEC sp_insertarTemporada '2024', 6, '2024-08-20', '2025-05-25';
+EXEC sp_insertarTemporada '2025', 6, '2025-08-20', '2026-05-25';
+
+EXEC sp_ingresarJugador 1, 'Juan', 'Pérez', '1995-03-14', 'Argentina', 'Delantero';
+EXEC sp_ingresarJugador 1, 'Matías', 'Gómez', '1998-06-22', 'Argentina', 'Centrocampista';
+EXEC sp_ingresarJugador 1, 'Lucas', 'Benítez', '1993-11-10', 'Uruguay', 'Defensor';
+EXEC sp_ingresarJugador 2, 'Ezequiel', 'Soto', '1997-05-30', 'Argentina', 'Arquero';
+EXEC sp_ingresarJugador 2, 'Diego', 'López', '2000-01-25', 'Argentina', 'Defensor';
+EXEC sp_ingresarJugador 2, 'Franco', 'Rojas', '1996-02-18', 'Argentina', 'Delantero';
+EXEC sp_ingresarJugador 5, 'Agustín', 'Martínez', '1999-09-02', 'Argentina', 'Centrocampista';
+EXEC sp_ingresarJugador 5, 'Leandro', 'Paz', '1994-07-13', 'Paraguay', 'Defensor';
+EXEC sp_ingresarJugador 5, 'Nahuel', 'Silva', '2001-04-09', 'Argentina', 'Arquero';
+EXEC sp_ingresarJugador 7, 'Cristian', 'Molina', '1998-08-17', 'Argentina', 'Defensor';
+EXEC sp_ingresarJugador 7, 'Santiago', 'Ruiz', '1997-12-01', 'Chile', 'Delantero';
+EXEC sp_ingresarJugador 8, 'Tomás', 'Vega', '1995-03-07', 'Argentina', 'Centrocampista';
+EXEC sp_ingresarJugador 9, 'Bruno', 'Carrizo', '1999-06-11', 'Argentina', 'Defensor';
+EXEC sp_ingresarJugador 9, 'Federico', 'Bustos', '1993-01-21', 'Argentina', 'Arquero';
+EXEC sp_ingresarJugador 10, 'Julián', 'Torres', '1998-10-19', 'Argentina', 'Defensor';
+
+EXEC sp_ingresarJugador 11, 'Rodrigo', 'Acosta', '1995-04-30', 'Argentina', 'Delantero';
+EXEC sp_ingresarJugador 11, 'Gonzalo', 'Reyes', '1999-05-23', 'Argentina', 'Centrocampista';
+EXEC sp_ingresarJugador 11, 'Emiliano', 'Campos', '1996-09-15', 'Argentina', 'Defensor';
+EXEC sp_ingresarJugador 12, 'Nicolás', 'Ferreyra', '1993-12-29', 'Argentina', 'Arquero';
+EXEC sp_ingresarJugador 13, 'Hernán', 'Funes', '2000-06-17', 'Argentina', 'Defensor';
+EXEC sp_ingresarJugador 14, 'Maximiliano', 'Ríos', '1997-01-12', 'Argentina', 'Delantero';
+EXEC sp_ingresarJugador 14, 'Iván', 'Méndez', '1996-08-03', 'Uruguay', 'Centrocampista';
+EXEC sp_ingresarJugador 14, 'Ramiro', 'Ojeda', '1998-09-28', 'Argentina', 'Defensor';
+EXEC sp_ingresarJugador 17, 'Facundo', 'Navarro', '1994-11-22', 'Argentina', 'Arquero';
+EXEC sp_ingresarJugador 17, 'Marcos', 'Correa', '1999-03-19', 'Argentina', 'Defensor';
+EXEC sp_ingresarJugador 18, 'Kevin', 'Fernández', '1995-02-27', 'Argentina', 'Delantero';
+EXEC sp_ingresarJugador 18, 'Alejandro', 'Cardozo', '1997-07-04', 'Paraguay', 'Centrocampista';
+EXEC sp_ingresarJugador 18, 'David', 'Roldán', '2000-10-13', 'Argentina', 'Defensor';
+EXEC sp_ingresarJugador 18, 'Sebastián', 'Villalba', '1998-06-01', 'Argentina', 'Arquero';
+EXEC sp_ingresarJugador 19, 'Esteban', 'Bravo', '1996-09-30', 'Argentina', 'Defensor';
+EXEC sp_ingresarJugador 19, 'Carlos', 'Castro', '1995-12-25', 'Argentina', 'Delantero';
+EXEC sp_ingresarJugador 20, 'Pablo', 'Santana', '1999-08-14', 'Argentina', 'Centrocampista';
+EXEC sp_ingresarJugador 20, 'Juan', 'Arias', '1997-03-03', 'Chile', 'Defensor';
+EXEC sp_ingresarJugador 20, 'Emanuel', 'Morales', '1994-05-10', 'Argentina', 'Arquero';
+EXEC sp_ingresarJugador 20, 'Luciano', 'Ponce', '1998-02-19', 'Argentina', 'Defensor';
+
+EXEC sp_ingresarJugador 21, 'Fernando', 'Ortiz', '1995-06-11', 'Argentina', 'Delantero';
+EXEC sp_ingresarJugador 21, 'Sergio', 'Zamora', '1997-04-17', 'Uruguay', 'Centrocampista';
+EXEC sp_ingresarJugador 22, 'Hugo', 'Villarreal', '1999-09-25', 'Argentina', 'Defensor';
+EXEC sp_ingresarJugador 23, 'Marcelo', 'Giménez', '1996-12-08', 'Argentina', 'Arquero';
+EXEC sp_ingresarJugador 24, 'Leonel', 'Ibarra', '1993-01-27', 'Argentina', 'Defensor';
+EXEC sp_ingresarJugador 24, 'James', 'Smith', '1995-04-10', 'Inglaterra', 'Delantero';
+EXEC sp_ingresarJugador 24, 'Oliver', 'Brown', '1997-09-18', 'Inglaterra', 'Centrocampista';
+EXEC sp_ingresarJugador 26, 'Harry', 'Johnson', '1994-12-02', 'Inglaterra', 'Defensor';
+EXEC sp_ingresarJugador 26, 'George', 'Miller', '1998-03-09', 'Inglaterra', 'Arquero';
+EXEC sp_ingresarJugador 26, 'Jack', 'Wilson', '1999-05-15', 'Escocia', 'Defensor';
+EXEC sp_ingresarJugador 27, 'William', 'Taylor', '1996-07-22', 'Inglaterra', 'Delantero';
+EXEC sp_ingresarJugador 27, 'Charlie', 'Davies', '1999-02-28', 'Inglaterra', 'Centrocampista';
+EXEC sp_ingresarJugador 27, 'Thomas', 'Evans', '1995-10-12', 'Inglaterra', 'Defensor';
+EXEC sp_ingresarJugador 28, 'Alfie', 'Walker', '1997-01-05', 'Gales', 'Arquero';
+EXEC sp_ingresarJugador 29, 'Henry', 'Harris', '2000-11-03', 'Inglaterra', 'Defensor';
+
+EXEC sp_ingresarJugador 31, 'Lewis', 'Baker', '1998-04-12', 'Inglaterra', 'Delantero';
+EXEC sp_ingresarJugador 31, 'Mason', 'Clark', '1997-09-21', 'Inglaterra', 'Centrocampista';
+EXEC sp_ingresarJugador 31, 'Freddie', 'Cooper', '1996-11-14', 'Inglaterra', 'Defensor';
+EXEC sp_ingresarJugador 31, 'Theo', 'Morgan', '1999-05-09', 'Gales', 'Arquero';
+EXEC sp_ingresarJugador 32, 'Archie', 'Ward', '1995-07-03', 'Inglaterra', 'Defensor';
+EXEC sp_ingresarJugador 32, 'Jacob', 'Bell', '1997-06-30', 'Inglaterra', 'Delantero';
+EXEC sp_ingresarJugador 32, 'Samuel', 'Parker', '1995-08-22', 'Inglaterra', 'Centrocampista';
+EXEC sp_ingresarJugador 32, 'Harvey', 'Adams', '1998-12-01', 'Inglaterra', 'Defensor';
+EXEC sp_ingresarJugador 33, 'Logan', 'Phillips', '1996-01-25', 'Inglaterra', 'Arquero';
+EXEC sp_ingresarJugador 34, 'Benjamin', 'Carter', '2001-02-03', 'Inglaterra', 'Defensor';
+EXEC sp_ingresarJugador 35, 'Ethan', 'Turner', '1999-07-20', 'Inglaterra', 'Delantero';
+EXEC sp_ingresarJugador 35, 'Albie', 'Scott', '1997-11-29', 'Inglaterra', 'Centrocampista';
+EXEC sp_ingresarJugador 35, 'Reggie', 'Hill', '1996-10-17', 'Inglaterra', 'Defensor';
+EXEC sp_ingresarJugador 36, 'Callum', 'Green', '1998-02-06', 'Inglaterra', 'Arquero';
+EXEC sp_ingresarJugador 37, 'Jamie', 'Wright', '1994-05-10', 'Escocia', 'Defensor';
+EXEC sp_ingresarJugador 38, 'Toby', 'Adams', '1998-03-15', 'Inglaterra', 'Delantero';
+EXEC sp_ingresarJugador 39, 'Ryan', 'Dixon', '1997-08-11', 'Inglaterra', 'Centrocampista';
+EXEC sp_ingresarJugador 39, 'Nathan', 'Wood', '1996-12-24', 'Inglaterra', 'Defensor';
+EXEC sp_ingresarJugador 39, 'Finley', 'Rogers', '1999-04-13', 'Inglaterra', 'Arquero';
+EXEC sp_ingresarJugador 40, 'Jayden', 'Stevens', '1995-09-07', 'Inglaterra', 'Defensor';
+
+EXEC sp_ingresarJugador 41, 'Carlos', 'García', '1995-03-14', 'España', 'Delantero';
+EXEC sp_ingresarJugador 41, 'Javier', 'López', '1997-09-27', 'España', 'Centrocampista';
+EXEC sp_ingresarJugador 41, 'Sergio', 'Hernández', '1994-01-02', 'España', 'Defensor';
+EXEC sp_ingresarJugador 41, 'Pablo', 'Ruiz', '1999-05-08', 'España', 'Arquero';
+EXEC sp_ingresarJugador 43, 'David', 'Martínez', '1998-07-11', 'España', 'Defensor';
+EXEC sp_ingresarJugador 43, 'Adrián', 'Santos', '1996-12-21', 'España', 'Delantero';
+EXEC sp_ingresarJugador 43, 'Miguel', 'Jiménez', '1999-04-16', 'España', 'Centrocampista';
+EXEC sp_ingresarJugador 45, 'Luis', 'Castillo', '1995-08-10', 'España', 'Defensor';
+EXEC sp_ingresarJugador 45, 'Raúl', 'Morales', '1998-11-25', 'España', 'Arquero';
+EXEC sp_ingresarJugador 46, 'Rubén', 'Ortiz', '1997-02-13', 'España', 'Defensor';
+EXEC sp_ingresarJugador 47, 'Andrés', 'Navas', '1995-09-15', 'España', 'Delantero';
+EXEC sp_ingresarJugador 47, 'Iván', 'Rey', '1998-10-20', 'España', 'Centrocampista';
+EXEC sp_ingresarJugador 47, 'Fernando', 'Campos', '1996-05-03', 'España', 'Defensor';
+EXEC sp_ingresarJugador 49, 'Sergi', 'Luna', '1999-12-01', 'España', 'Arquero';
+EXEC sp_ingresarJugador 49, 'Jorge', 'Prieto', '1997-03-28', 'España', 'Defensor';
+
+EXEC sp_ingresarJugador 51, 'Álvaro', 'Muñoz', '1995-04-07', 'España', 'Delantero';
+EXEC sp_ingresarJugador 51, 'Óscar', 'Vidal', '1998-07-30', 'España', 'Centrocampista';
+EXEC sp_ingresarJugador 51, 'Mario', 'Suárez', '1996-11-12', 'España', 'Defensor';
+EXEC sp_ingresarJugador 51, 'Eduardo', 'León', '1999-06-23', 'España', 'Arquero';
+EXEC sp_ingresarJugador 52, 'Héctor', 'Campos', '1997-01-17', 'España', 'Defensor';
+EXEC sp_ingresarJugador 52, 'Daniel', 'Gómez', '1995-05-11', 'España', 'Delantero';
+EXEC sp_ingresarJugador 52, 'Francisco', 'Del Río', '1999-03-25', 'España', 'Centrocampista';
+EXEC sp_ingresarJugador 53, 'Antonio', 'Cano', '1996-09-05', 'España', 'Defensor';
+EXEC sp_ingresarJugador 53, 'Alejandro', 'Blanco', '1998-02-27', 'España', 'Arquero';
+EXEC sp_ingresarJugador 54, 'Vicente', 'Pérez', '1997-08-14', 'España', 'Defensor';
+EXEC sp_ingresarJugador 54, 'Raúl', 'Serrano', '1995-12-09', 'España', 'Delantero';
+EXEC sp_ingresarJugador 54, 'Marco', 'Lara', '1998-04-04', 'España', 'Centrocampista';
+EXEC sp_ingresarJugador 56, 'Cristian', 'Campos', '1996-07-20', 'España', 'Defensor';
+EXEC sp_ingresarJugador 56, 'Enrique', 'Torres', '1999-10-16', 'España', 'Arquero';
+EXEC sp_ingresarJugador 56, 'Ángel', 'Rubio', '1997-11-22', 'España', 'Defensor';
+
+EXEC sp_ingresarPartido 1, 1, 1, 2, 10, 3, 1, '2025-02-05';
+EXEC sp_ingresarPartido 2, 1, 3, 4, 10, 1, 0, '2025-02-12';
+EXEC sp_ingresarPartido 3, 1, 5, 6, 10, 2, 2, '2025-02-19';
+EXEC sp_ingresarPartido 4, 1, 7, 8, 10, 0, 1, '2025-02-26';
+EXEC sp_ingresarPartido 5, 1, 5, 82, 10, 3, 2, '2025-03-06';
+EXEC sp_ingresarPartido 6, 1, 2, 5, 10, 1, 1, '2025-03-12';
+EXEC sp_ingresarPartido 7, 1, 8, 1, 10, 0, 2, '2025-03-19';
+EXEC sp_ingresarPartido 8, 1, 4, 7, 10, 2, 3, '2025-03-26';
+EXEC sp_ingresarPartido 9, 1, 3, 9, 10, 4, 0, '2025-04-02';
+EXEC sp_ingresarPartido 10, 1, 6, 10, 10, 2, 1, '2025-04-09';
+EXEC sp_ingresarPartido 1, 1, 5, 1, 10, 0, 3, '2025-04-16';
+EXEC sp_ingresarPartido 2, 1, 7, 3, 10, 2, 2, '2025-04-23';
+EXEC sp_ingresarPartido 3, 1, 2, 4, 10, 1, 2, '2025-04-30';
+EXEC sp_ingresarPartido 4, 1, 8, 9, 10, 1, 1, '2025-05-07';
+EXEC sp_ingresarPartido 5, 1, 10, 5, 10, 3, 1, '2025-05-14';
+EXEC sp_ingresarPartido 6, 1, 6, 7, 10, 0, 0, '2025-05-21';
+EXEC sp_ingresarPartido 7, 1, 7, 80, 10, 1, 3, '2025-05-28';
+EXEC sp_ingresarPartido 8, 1, 1, 10, 10, 2, 2, '2025-06-04';
+EXEC sp_ingresarPartido 9, 1, 3, 8, 10, 4, 1, '2025-06-11';
+EXEC sp_ingresarPartido 10, 1, 2, 6, 10, 0, 1, '2025-06-18';
+EXEC sp_ingresarPartido 1, 2, 11, 12, 20, 2, 0, '2025-02-10';
+EXEC sp_ingresarPartido 2, 2, 13, 14, 20, 1, 1, '2025-02-17';
+EXEC sp_ingresarPartido 3, 2, 15, 16, 20, 0, 2, '2025-02-24';
+EXEC sp_ingresarPartido 4, 2, 62, 66, 20, 3, 1, '2025-03-03';
+EXEC sp_ingresarPartido 5, 2, 19, 20, 20, 1, 0, '2025-03-10';
+EXEC sp_ingresarPartido 6, 2, 11, 12, 20, 2, 3, '2025-03-17';
+EXEC sp_ingresarPartido 7, 2, 13, 14, 20, 0, 0, '2025-03-24';
+EXEC sp_ingresarPartido 8, 2, 15, 16, 20, 1, 2, '2025-03-31';
+EXEC sp_ingresarPartido 9, 2, 17, 18, 20, 2, 1, '2025-04-07';
+EXEC sp_ingresarPartido 10, 2, 19, 20, 20, 1, 1, '2025-04-14';
+EXEC sp_ingresarPartido 1, 2, 12, 19, 20, 0, 1, '2025-04-21';
+EXEC sp_ingresarPartido 2, 2, 16, 11, 20, 3, 3, '2025-04-28';
+EXEC sp_ingresarPartido 3, 2, 14, 15, 20, 2, 0, '2025-05-05';
+EXEC sp_ingresarPartido 4, 2, 17, 11, 20, 1, 2, '2025-05-12';
+EXEC sp_ingresarPartido 5, 2, 18, 12, 20, 0, 0, '2025-05-19';
+EXEC sp_ingresarPartido 6, 2, 13, 14, 20, 1, 3, '2025-05-26';
+EXEC sp_ingresarPartido 7, 2, 61, 65, 20, 2, 2, '2025-06-02';
+EXEC sp_ingresarPartido 8, 2, 18, 11, 20, 1, 0, '2025-06-09';
+EXEC sp_ingresarPartido 9, 2, 13, 19, 20, 0, 2, '2025-06-16';
+EXEC sp_ingresarPartido 4, 2, 11, 16, 20, 3, 1, '2025-06-23';
+EXEC sp_ingresarPartido 11, 3, 21, 22, 30, 2, 2, '2025-08-10';
+EXEC sp_ingresarPartido 12, 3, 23, 24, 30, 1, 0, '2025-08-17';
+EXEC sp_ingresarPartido 13, 3, 25, 26, 30, 3, 1, '2025-08-24';
+EXEC sp_ingresarPartido 14, 3, 24, 85, 30, 1, 1, '2025-08-31';
+EXEC sp_ingresarPartido 15, 3, 29, 21, 30, 2, 3, '2025-09-07';
+EXEC sp_ingresarPartido 16, 3, 21, 22, 30, 1, 0, '2025-09-14';
+EXEC sp_ingresarPartido 17, 3, 23, 24, 30, 0, 0, '2025-09-21';
+EXEC sp_ingresarPartido 18, 3, 25, 26, 30, 4, 1, '2025-09-28';
+EXEC sp_ingresarPartido 19, 3, 27, 28, 30, 1, 2, '2025-10-05';
+EXEC sp_ingresarPartido 11, 3, 29, 30, 30, 2, 1, '2025-10-12';
+EXEC sp_ingresarPartido 11, 3, 21, 85, 30, 3, 2, '2025-10-19';
+EXEC sp_ingresarPartido 12, 3, 24, 28, 30, 0, 1, '2025-10-26';
+EXEC sp_ingresarPartido 13, 3, 21, 23, 30, 2, 0, '2025-11-02';
+EXEC sp_ingresarPartido 14, 3, 26, 25, 30, 1, 3, '2025-11-09';
+EXEC sp_ingresarPartido 15, 3, 27, 29, 30, 2, 2, '2025-11-16';
+EXEC sp_ingresarPartido 16, 3, 26, 88, 30, 0, 1, '2025-11-23';
+EXEC sp_ingresarPartido 17, 3, 22, 26, 30, 3, 0, '2025-11-30';
+EXEC sp_ingresarPartido 18, 3, 28, 29, 30, 1, 4, '2025-12-07';
+EXEC sp_ingresarPartido 19, 3, 29, 90, 30, 0, 0, '2025-12-14';
+EXEC sp_ingresarPartido 11, 3, 23, 27, 30, 1, 2, '2025-12-21';
+EXEC sp_ingresarPartido 11, 4, 31, 32, 40, 2, 0, '2025-08-10';
+EXEC sp_ingresarPartido 12, 4, 71, 72, 40, 1, 1, '2025-08-17';
+EXEC sp_ingresarPartido 13, 4, 35, 36, 40, 0, 1, '2025-08-24';
+EXEC sp_ingresarPartido 14, 4, 37, 38, 40, 3, 3, '2025-08-31';
+EXEC sp_ingresarPartido 15, 4, 39, 40, 40, 2, 3, '2025-09-07';
+EXEC sp_ingresarPartido 16, 4, 31, 32, 40, 0, 0, '2025-09-14';
+EXEC sp_ingresarPartido 17, 4, 71, 67, 40, 1, 2, '2025-09-21';
+EXEC sp_ingresarPartido 18, 4, 35, 36, 40, 3, 1, '2025-09-28';
+EXEC sp_ingresarPartido 19, 4, 37, 38, 40, 1, 0, '2025-10-05';
+EXEC sp_ingresarPartido 11, 4, 39, 40, 40, 2, 2, '2025-10-12';
+EXEC sp_ingresarPartido 11, 4, 32, 31, 40, 3, 1, '2025-10-19';
+EXEC sp_ingresarPartido 12, 4, 34, 37, 40, 1, 0, '2025-10-26';
+EXEC sp_ingresarPartido 13, 4, 35, 38, 40, 2, 2, '2025-11-02';
+EXEC sp_ingresarPartido 14, 4, 37, 39, 40, 1, 3, '2025-11-09';
+EXEC sp_ingresarPartido 15, 4, 39, 40, 40, 0, 1, '2025-11-16';
+EXEC sp_ingresarPartido 16, 4, 33, 32, 40, 2, 0, '2025-11-23';
+EXEC sp_ingresarPartido 17, 4, 36, 34, 40, 3, 2, '2025-11-30';
+EXEC sp_ingresarPartido 18, 4, 35, 40, 40, 1, 1, '2025-12-07';
+EXEC sp_ingresarPartido 19, 4, 36, 39, 40, 0, 3, '2025-12-14';
+EXEC sp_ingresarPartido 11, 4, 38, 35, 40, 2, 1, '2025-12-21';
+EXEC sp_ingresarPartido 21, 5, 41, 42, 50, 2, 1, '2025-08-18';
+EXEC sp_ingresarPartido 22, 5, 43, 44, 50, 0, 0, '2025-08-25';
+EXEC sp_ingresarPartido 23, 5, 45, 46, 50, 3, 2, '2025-09-01';
+EXEC sp_ingresarPartido 24, 5, 47, 48, 50, 1, 1, '2025-09-08';
+EXEC sp_ingresarPartido 25, 5, 49, 50, 50, 4, 0, '2025-09-15';
+EXEC sp_ingresarPartido 26, 5, 41, 42, 50, 2, 3, '2025-09-22';
+EXEC sp_ingresarPartido 27, 5, 47, 93, 50, 1, 0, '2025-09-29';
+EXEC sp_ingresarPartido 28, 5, 45, 41, 50, 2, 2, '2025-10-06';
+EXEC sp_ingresarPartido 29, 5, 42, 44, 50, 0, 1, '2025-10-13';
+EXEC sp_ingresarPartido 22, 5, 43, 45, 50, 1, 3, '2025-10-20';
+EXEC sp_ingresarPartido 21, 5, 46, 47, 50, 2, 2, '2025-10-27';
+EXEC sp_ingresarPartido 22, 5, 48, 49, 50, 0, 2, '2025-11-03';
+EXEC sp_ingresarPartido 23, 5, 50, 41, 50, 1, 1, '2025-11-10';
+EXEC sp_ingresarPartido 24, 5, 42, 43, 50, 3, 0, '2025-11-17';
+EXEC sp_ingresarPartido 25, 5, 44, 45, 50, 2, 1, '2025-11-24';
+EXEC sp_ingresarPartido 26, 5, 45, 48, 50, 0, 0, '2025-12-01';
+EXEC sp_ingresarPartido 27, 5, 43, 50, 50, 2, 4, '2025-12-08';
+EXEC sp_ingresarPartido 28, 5, 48, 92, 50, 1, 1, '2025-12-15';
+EXEC sp_ingresarPartido 29, 5, 44, 46, 50, 3, 2, '2025-12-22';
+EXEC sp_ingresarPartido 21, 5, 41, 47, 50, 2, 1, '2025-12-29';
+EXEC sp_ingresarPartido 21, 6, 56, 57, 60, 1, 0, '2025-08-17';
+EXEC sp_ingresarPartido 22, 6, 58, 59, 60, 2, 2, '2025-08-24';
+EXEC sp_ingresarPartido 23, 6, 60, 51, 60, 0, 1, '2025-08-31';
+EXEC sp_ingresarPartido 24, 6, 52, 53, 60, 3, 2, '2025-09-07';
+EXEC sp_ingresarPartido 25, 6, 54, 55, 60, 1, 1, '2025-09-14';
+EXEC sp_ingresarPartido 26, 6, 56, 57, 60, 0, 0, '2025-09-21';
+EXEC sp_ingresarPartido 27, 6, 58, 59, 60, 2, 3, '2025-09-28';
+EXEC sp_ingresarPartido 28, 6, 60, 56, 60, 1, 0, '2025-10-05';
+EXEC sp_ingresarPartido 29, 6, 74, 75, 60, 3, 3, '2025-10-12';
+EXEC sp_ingresarPartido 30, 6, 59, 60, 60, 2, 1, '2025-10-19';
+EXEC sp_ingresarPartido 21, 6, 51, 52, 60, 1, 2, '2025-10-26';
+EXEC sp_ingresarPartido 22, 6, 53, 54, 60, 2, 0, '2025-11-02';
+EXEC sp_ingresarPartido 23, 6, 55, 56, 60, 0, 1, '2025-11-09';
+EXEC sp_ingresarPartido 24, 6, 76, 77, 60, 3, 2, '2025-11-16';
+EXEC sp_ingresarPartido 25, 6, 59, 60, 60, 1, 1, '2025-11-23';
+EXEC sp_ingresarPartido 26, 6, 60, 57, 60, 2, 0, '2025-11-30';
+EXEC sp_ingresarPartido 27, 6, 58, 55, 60, 1, 2, '2025-12-07';
+EXEC sp_ingresarPartido 28, 6, 56, 53, 60, 3, 1, '2025-12-14';
+EXEC sp_ingresarPartido 29, 6, 59, 51, 60, 0, 0, '2025-12-21';
+EXEC sp_ingresarPartido 30, 6, 60, 54, 60, 2, 3, '2025-12-28';
+
+EXEC sp_InsertarHistorial 1, 1, 1, 2, 82, 25;
+EXEC sp_InsertarHistorial 1, 2, 3, 4, 88, 28;
+EXEC sp_InsertarHistorial 1, 3, 5, 6, 90, 27;
+EXEC sp_InsertarHistorial 1, 4, 7, 8, 84, 24;
+EXEC sp_InsertarHistorial 1, 5, 2, 3, 86, 26;
+EXEC sp_InsertarHistorial 1, 6, 6, 1, 83, 25;
+EXEC sp_InsertarHistorial 1, 7, 4, 5, 92, 29;
+EXEC sp_InsertarHistorial 1, 8, 8, 7, 88, 27;
+EXEC sp_InsertarHistorial 1, 9, 1, 6, 80, 23;
+EXEC sp_InsertarHistorial 1, 10, 5, 4, 85, 26;
+select * from Equipo
+EXEC sp_InsertarHistorial 2, 11, 11, 12, 81, 24;
+EXEC sp_InsertarHistorial 2, 12, 11, 12, 87, 27;
+EXEC sp_InsertarHistorial 2, 13, 13, 14, 90, 28;
+EXEC sp_InsertarHistorial 2, 14, 15, 16, 84, 25;
+EXEC sp_InsertarHistorial 2, 15, 12, 11, 88, 26;
+EXEC sp_InsertarHistorial 2, 16, 12, 13, 82, 24;
+EXEC sp_InsertarHistorial 2, 17, 14, 13, 89, 28;
+EXEC sp_InsertarHistorial 2, 18, 16, 15, 91, 29;
+EXEC sp_InsertarHistorial 2, 19, 17, 12, 83, 25;
+EXEC sp_InsertarHistorial 2, 20, 13, 12, 86, 26;
+
+EXEC sp_InsertarHistorial 3, 21, 23, 28, 92, 29;
+EXEC sp_InsertarHistorial 3, 22, 22, 21, 87, 27;
+EXEC sp_InsertarHistorial 3, 23, 21, 22, 89, 28;
+EXEC sp_InsertarHistorial 3, 24, 23, 24, 84, 25;
+EXEC sp_InsertarHistorial 3, 25, 22, 23, 91, 29;
+EXEC sp_InsertarHistorial 3, 26, 22, 21, 88, 26;
+EXEC sp_InsertarHistorial 3, 27, 24, 25, 85, 25;
+EXEC sp_InsertarHistorial 3, 28, 25, 23, 90, 28;
+EXEC sp_InsertarHistorial 3, 29, 26, 21, 83, 24;
+EXEC sp_InsertarHistorial 3, 30, 27, 26, 86, 26;
+
+EXEC sp_InsertarHistorial 4, 31, 34, 36, 80, 23;
+EXEC sp_InsertarHistorial 4, 32, 33, 38, 92, 29;
+EXEC sp_InsertarHistorial 4, 33, 32, 31, 88, 27;
+EXEC sp_InsertarHistorial 4, 34, 31, 32, 86, 26;
+EXEC sp_InsertarHistorial 4, 35, 36, 37, 83, 25;
+EXEC sp_InsertarHistorial 4, 36, 33, 35, 90, 28;
+EXEC sp_InsertarHistorial 4, 37, 31, 39, 89, 28;
+EXEC sp_InsertarHistorial 4, 38, 32, 31, 91, 29;
+EXEC sp_InsertarHistorial 4, 39, 35, 31, 84, 24;
+EXEC sp_InsertarHistorial 4, 40, 39, 38, 87, 27;
+
+EXEC sp_InsertarHistorial 5, 41, 41, 44, 93, 30;
+EXEC sp_InsertarHistorial 5, 42, 45, 46, 88, 27;
+EXEC sp_InsertarHistorial 5, 43, 47, 48, 86, 26;
+EXEC sp_InsertarHistorial 5, 44, 49, 42, 91, 29;
+EXEC sp_InsertarHistorial 5, 45, 44, 43, 84, 25;
+EXEC sp_InsertarHistorial 5, 46, 46, 45, 85, 25;
+EXEC sp_InsertarHistorial 5, 47, 48, 47, 89, 28;
+EXEC sp_InsertarHistorial 5, 48, 41, 49, 87, 27;
+EXEC sp_InsertarHistorial 5, 49, 43, 46, 82, 24;
+EXEC sp_InsertarHistorial 5, 50, 45, 48, 90, 28;
+
+EXEC sp_InsertarHistorial 6, 51, 51, 52, 92, 29;
+EXEC sp_InsertarHistorial 6, 52, 53, 54, 86, 26;
+EXEC sp_InsertarHistorial 6, 53, 55, 56, 88, 27;
+EXEC sp_InsertarHistorial 6, 54, 57, 58, 84, 24;
+EXEC sp_InsertarHistorial 6, 55, 52, 51, 89, 28;
+EXEC sp_InsertarHistorial 6, 56, 54, 53, 90, 28;
+EXEC sp_InsertarHistorial 6, 57, 56, 55, 91, 29;
+EXEC sp_InsertarHistorial 6, 58, 58, 57, 85, 25;
+EXEC sp_InsertarHistorial 6, 59, 51, 54, 87, 27;
+EXEC sp_InsertarHistorial 6, 60, 53, 56, 93, 30;
+
+EXEC sp_actualizarEstadisticaDeEquipo 1, 1, 30, 13, 7, 2, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 2, 1, 70, 10, 5, 3, 1;
+EXEC sp_actualizarEstadisticaDeEquipo 10, 15, 45, 10, 2, 2, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 5, 15, 55, 11, 3, 0, 1;
+EXEC sp_actualizarEstadisticaDeEquipo 19, 25, 47.1 , 15, 3, 1, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 20, 25, 52.9 , 11, 1, 3, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 13, 39, 35 , 7, 3, 4, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 19, 39, 65 , 13, 6, 3, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 25, 43, 35 , 7, 3, 4, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 26, 43, 65 , 13, 6, 3, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 26, 54, 44 , 7, 3, 4, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 25, 54, 66 , 13, 6, 3, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 31, 66, 55 , 11, 3, 2, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 32, 66, 45 , 4, 3, 3, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 41, 81, 55 , 7, 2, 5, 1;
+EXEC sp_actualizarEstadisticaDeEquipo 42, 81, 45 , 3, 5, 2, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 42, 94, 90 , 14, 9, 1, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 42, 94, 10 , 7, 2, 3, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 38, 80, 55 , 2, 0, 1, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 35, 80, 45 , 7, 4, 0, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 59, 119, 49 , 2, 1, 1, 1;
+EXEC sp_actualizarEstadisticaDeEquipo 51, 119, 51 , 7, 0, 2, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 56, 106, 50 , 14, 9, 1, 0;
+EXEC sp_actualizarEstadisticaDeEquipo 57, 106, 50 , 7, 2, 3, 0;
+
+EXEC sp_actualizarEstadisticaDeJugador 6, 6, 60,1,0,0,0;
+EXEC sp_actualizarEstadisticaDeJugador 15, 10, 70,0,0,0,0;
+EXEC sp_actualizarEstadisticaDeJugador 25, 29,90,0,0,1,0;
+EXEC sp_actualizarEstadisticaDeJugador 35, 30,90, 0,0,1,0;
+EXEC sp_actualizarEstadisticaDeJugador 45, 43, 88,1,0,1,0;
+EXEC sp_actualizarEstadisticaDeJugador 55, 66, 10,0,0,0,1;
+EXEC sp_actualizarEstadisticaDeJugador 66, 69, 90,0,0,0,0;
+EXEC sp_actualizarEstadisticaDeJugador 75, 90, 22,0,0,0,0;
+EXEC sp_actualizarEstadisticaDeJugador 85,85,17,1,0,0,0;
+EXEC sp_actualizarEstadisticaDeJugador 95,105,50,0,0,0,0;
+EXEC sp_actualizarEstadisticaDeJugador 5, 1, 90, 0, 0, 1, 0;
+EXEC sp_actualizarEstadisticaDeJugador 5, 6, 70, 0, 1, 0, 0;
+EXEC sp_actualizarEstadisticaDeJugador 5, 13, 10, 1, 0, 0, 1;
+EXEC sp_actualizarEstadisticaDeJugador 67,65, 90, 1 , 0,1,0;
+EXEC sp_actualizarEstadisticaDeJugador 67,70,15, 0, 0,0,0;
+EXEC sp_actualizarEstadisticaDeJugador 67,79, 40, 2, 0,0,0;
+EXEC sp_actualizarEstadisticaDeJugador 94,104,90,0,0,1,0;
+EXEC sp_actualizarEstadisticaDeJugador 94,112,90,0,0,0,0;
+EXEC sp_actualizarEstadisticaDeJugador 94,118,45,0,0,0,0;
