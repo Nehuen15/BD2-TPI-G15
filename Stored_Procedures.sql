@@ -181,7 +181,7 @@ BEGIN
 
     IF @IdLiga <> (SELECT idLiga FROM Equipo WHERE idEquipo = @idLocal) AND @IdLiga <> (SELECT idLiga FROM Equipo WHERE idEquipo = @idVisitante)
     BEGIN
-        RAISERROR ('Los equipos no pertenecen a esa liga',16,1);
+        RAISERROR ('La liga ingresada no corresponde con la de los equipos',16,1);
         RETURN;
     END
 
@@ -355,3 +355,4 @@ BEGIN
     ORDER BY Puntos DESC
 
 END
+
