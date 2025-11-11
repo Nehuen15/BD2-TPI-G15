@@ -1,7 +1,20 @@
 USE BD2_TPI_G15;
 GO
 
------- PROCEDIMIENTO 1 - Actualiza el promedio segun el partido
+------ PROCEDIMIENTO 1 - Calcula el promedio de un equipo
+CREATE OR ALTER PROCEDURE sp_ActualizarPromedioPorEquipo (@idEquipo INT) AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM Promedio WHERE idEquipo = @idEquipo AND partidosTotales > 0)
+    BEGIN
+        UPDATE Promedio
+        SET promedio = CAST(puntosTotales AS DECIMAL(5,3)) / partidosTotales
+        WHERE idEquipo = @idEquipo;
+    END
+END
+
+GO
+
+------ PROCEDIMIENTO 2 - Actualiza el promedio segun el partido
 
 CREATE OR ALTER PROCEDURE sp_ActualizarPromedio (@IDPartido INT) AS
 BEGIN
@@ -47,18 +60,6 @@ END
 
 GO
 
------- PROCEDIMIENTO 2 - Calcula el promedio de un equipo
-CREATE OR ALTER PROCEDURE sp_ActualizarPromedioPorEquipo (@idEquipo INT) AS
-BEGIN
-    IF EXISTS (SELECT 1 FROM Promedio WHERE idEquipo = @idEquipo AND partidosTotales > 0)
-    BEGIN
-        UPDATE Promedio
-        SET promedio = CAST(puntosTotales AS DECIMAL(5,3)) / partidosTotales
-        WHERE idEquipo = @idEquipo;
-    END
-END
-
-GO
 ------ PROCEDIMIENTO 3 - Muestra las estadisticas de un jugador entra la fechas indicadas
 CREATE OR ALTER PROCEDURE sp_estadisticaPorJugadorPorFechas (@idJugador INT, @FechaInicio DATE, @FechaFin DATE) AS
 BEGIN
@@ -352,4 +353,5 @@ BEGIN
     
     SELECT * FROM view_Historial_Campeones WHERE Liga = (SELECT nombre FROM Liga L WHERE L.idLiga = @idLiga)
     ORDER BY Puntos DESC
+
 END
