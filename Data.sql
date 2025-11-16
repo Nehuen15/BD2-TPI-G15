@@ -469,7 +469,6 @@ EXEC sp_InsertarHistorial 1, 7, 4, 5, 92, 29;
 EXEC sp_InsertarHistorial 1, 8, 8, 7, 88, 27;
 EXEC sp_InsertarHistorial 1, 9, 1, 6, 80, 23;
 EXEC sp_InsertarHistorial 1, 10, 5, 4, 85, 26;
-select * from Equipo
 EXEC sp_InsertarHistorial 2, 11, 11, 12, 81, 24;
 EXEC sp_InsertarHistorial 2, 12, 11, 12, 87, 27;
 EXEC sp_InsertarHistorial 2, 13, 13, 14, 90, 28;
