@@ -54,9 +54,8 @@ CREATE OR ALTER VIEW vista_estadisticas_jugadores_futbol AS
         E.idEquipo IN (P.idLocal, P.idVisitante)
         AND P.idLiga = L.idLiga
     )
-    INNER JOIN EstadisticasxPartidoxJugador EPJ ON EPJ.idJugador = J.idJugador
-    GROUP BY J.idJugador, J.nombre, J.apellido, E.nombre, P.idLiga, L.nombre; 
-
+    INNER JOIN EstadisticasxPartidoxJugador EPJ ON EPJ.idJugador = J.idJugador AND EPJ.idPartido = P.idPartido
+    GROUP BY J.idJugador, J.nombre, J.apellido, E.nombre, P.idLiga, L.nombre;
 GO
 
 ------ VISTA 3 - Muestra el historial de campeones de todas las temporadas
@@ -98,4 +97,5 @@ SELECT
 FROM EstadisticasxPartidoxJugador EPJ
 INNER JOIN Jugador J ON J.idJugador = EPJ.idJugador
 INNER JOIN Equipo E ON E.idEquipo = J.idEquipo
+
 GROUP BY J.Nombre, J.apellido, E.Nombre;
