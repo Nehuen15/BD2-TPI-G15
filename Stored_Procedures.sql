@@ -105,7 +105,6 @@ BEGIN
     ORDER BY Puntos DESC;
 END
 
-
 GO
 ------ PROCEDIMIENTO 5 - Inserta un Equipo y verifica que no haya otro equipo con ese nombre
 CREATE OR ALTER PROCEDURE sp_ingresarEquipo (@idLiga INT, @nombre VARCHAR(50), @ciudad VARCHAR(50), @fundacion DATE) AS
@@ -356,5 +355,6 @@ BEGIN
     ORDER BY Puntos DESC
 
 END
+
 
 
