@@ -50,6 +50,7 @@ CREATE TABLE Jugador (
     nombre VARCHAR(30) NOT NULL,
     apellido VARCHAR(30) NOT NULL,
     nacimiento DATE NOT NULL,
+    dni VARCHAR(20) NOT NULL UNIQUE,
     nacionalidad VARCHAR(50) NOT NULL,
     posicion VARCHAR(50) NOT NULL,
     retirado BIT NOT NULL DEFAULT 0,
@@ -128,4 +129,5 @@ CREATE TABLE Promedio (
     promedio DECIMAL(5,3),
     CONSTRAINT FK_Promedio_Equipo FOREIGN KEY (idEquipo) REFERENCES Equipo (idEquipo),
     CONSTRAINT FK_Promedio_Liga FOREIGN KEY (idLiga) REFERENCES Liga (idLiga)
+
 );
