@@ -124,8 +124,8 @@ END
 GO
 ------ PROCEDIMIENTO 6 - Inserta un Jugador
 CREATE OR ALTER PROCEDURE sp_ingresarJugador (
-	@dni VARCHAR (20),
     @idEquipo INT,
+	@dni VARCHAR (20),
     @nombre VARCHAR(30),
     @apellido VARCHAR(30),
     @nacimiento DATE,
@@ -354,6 +354,7 @@ BEGIN
     ORDER BY Puntos DESC
 
 END
+
 
 
 
