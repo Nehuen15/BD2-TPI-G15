@@ -35,11 +35,12 @@ BEGIN
 
     IF @EquipoLocal IS NOT NULL AND @EquipoVisitante IS NOT NULL
     BEGIN
-        
+
         UPDATE Promedio 
         SET partidosTotales = partidosTotales + 1 
-        WHERE idEquipo IN (@EquipoLocal, @EquipoVisitante);
-    
+        WHERE idEquipo IN (@EquipoLocal, @EquipoVisitante)
+        AND idLiga = @idLiga;
+
         IF @GolesLocal > @GolesVisitante
         BEGIN
             UPDATE Promedio SET puntosTotales = puntosTotales + 3 WHERE idEquipo = @EquipoLocal AND idLiga = @idLiga;
@@ -87,7 +88,7 @@ GO
 ------ PROCEDIMIENTO 4 - Muestra la tabla de una temporada de una liga
 CREATE OR ALTER PROCEDURE sp_tablaDePosicionesPorTemporada (@idLiga INT, @anio INT)AS
 BEGIN
-    IF NOT EXISTS (SELECT 1 FROM Temporada WHERE anio = @anio)
+    IF NOT EXISTS (SELECT 1 FROM Temporada WHERE idLiga = @idLiga AND anio = @anio)
     BEGIN
         RAISERROR ('No existe registro para esa temporada', 16,1)
         RETURN;
@@ -98,7 +99,7 @@ BEGIN
         RAISERROR ('No existe registro para esa liga', 16,1)
         RETURN;
     END
-    
+
     SELECT * from vista_tabla_posiciones_futbol
     WHERE anio = @anio AND idLiga = @idLiga
     ORDER BY Puntos DESC;
@@ -355,4 +356,5 @@ BEGIN
     ORDER BY Puntos DESC
 
 END
+
 
