@@ -61,6 +61,7 @@ GO
 ------ VISTA 3 - Muestra el historial de campeones de todas las temporadas
 CREATE OR ALTER VIEW view_Historial_Campeones AS
     SELECT 
+        L.IdLiga AS IdLiga,
         L.nombre AS Liga,
         T.anio AS Temporada,
         E1.nombre AS Campeon,
@@ -99,3 +100,4 @@ INNER JOIN Jugador J ON J.idJugador = EPJ.idJugador
 INNER JOIN Equipo E ON E.idEquipo = J.idEquipo
 
 GROUP BY J.Nombre, J.apellido, E.Nombre;
+
