@@ -147,12 +147,12 @@ BEGIN
         WHERE dni = @dni
     )
     BEGIN
-        RAISERROR('Ya existe un jugador con ese nombre y fecha de nacimiento.',16,1);
+        RAISERROR('Ya existe un jugador con ese dni.',16,1);
         RETURN;
     END;
 
-    INSERT INTO Jugador (idEquipo, nombre, apellido, nacimiento, nacionalidad, posicion)
-    VALUES (@idEquipo, @nombre, @apellido, @nacimiento, @nacionalidad, @posicion);
+    INSERT INTO Jugador (idEquipo, dni, nombre, apellido, nacimiento, nacionalidad, posicion)
+    VALUES (@idEquipo, @dni, @nombre, @apellido, @nacimiento, @nacionalidad, @posicion);
 END
 
 GO
