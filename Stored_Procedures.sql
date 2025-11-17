@@ -124,6 +124,7 @@ END
 GO
 ------ PROCEDIMIENTO 6 - Inserta un Jugador
 CREATE OR ALTER PROCEDURE sp_ingresarJugador (
+	@dni VARCHAR (20),
     @idEquipo INT,
     @nombre VARCHAR(30),
     @apellido VARCHAR(30),
@@ -143,9 +144,7 @@ BEGIN
     IF EXISTS (
         SELECT 1 
         FROM Jugador 
-        WHERE nombre = @nombre 
-          AND apellido = @apellido 
-          AND nacimiento = @nacimiento
+        WHERE dni = @dni
     )
     BEGIN
         RAISERROR('Ya existe un jugador con ese nombre y fecha de nacimiento.',16,1);
@@ -351,10 +350,11 @@ BEGIN
         RETURN;
     END
     
-    SELECT * FROM view_Historial_Campeones WHERE Liga = (SELECT nombre FROM Liga L WHERE L.idLiga = @idLiga)
+    SELECT * FROM view_Historial_Campeones WHERE IdLiga = (SELECT IdLiga FROM Liga L WHERE L.idLiga = @idLiga)
     ORDER BY Puntos DESC
 
 END
+
 
 
 
