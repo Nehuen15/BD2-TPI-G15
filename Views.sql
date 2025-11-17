@@ -98,6 +98,4 @@ SELECT
 FROM EstadisticasxPartidoxJugador EPJ
 INNER JOIN Jugador J ON J.idJugador = EPJ.idJugador
 INNER JOIN Equipo E ON E.idEquipo = J.idEquipo
-
 GROUP BY J.Nombre, J.apellido, E.Nombre;
-
